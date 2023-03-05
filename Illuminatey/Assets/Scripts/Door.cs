@@ -42,18 +42,18 @@ public class Door : MonoBehaviour
         }
     }
 
-    private IEnumerator DoRotationOpen(floar ForwardAmount)
+    private IEnumerator DoRotationOpen(float ForwardAmount)
     {
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation;
 
-        if (ForwardAmount >= ForwardDirecton)
+        if (ForwardAmount >= ForwardDirection)
         {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotatoin.y - RotationAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
         }
         else
         {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotatoinAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
         }
 
         IsOpen = true;
@@ -73,7 +73,7 @@ public class Door : MonoBehaviour
         {
             if (AnimationCoroutine != null)
             {
-                Stop Coroutine(AnimationCoroutine);
+                StopCoroutine(AnimationCoroutine);
             }
 
             if (IsRotatingDoor)

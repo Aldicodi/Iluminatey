@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField]
     private float MaxUseDistance = 5f;
     [SerializeField]
-    private LayerMast Use Layers;
+    private LayerMask UseLayers;
 
     public void OnUse()
     {
@@ -33,7 +34,7 @@ public class PlayerActions : MonoBehaviour
 
     private void Update()
     {
-        if(Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers) && hit.collider.TryGetCompoonent<Door>(out Door door)
+        if(Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers) && hit.collider.TryGetComponent<Door>(out Door door))
         {
             if (door.IsOpen)
             {
@@ -45,7 +46,7 @@ public class PlayerActions : MonoBehaviour
             }
             UseText.gameObject.SetActive(true);
             UseText.transform.position = hit.point - (hit.point - Camera.position).normalized * .01f;
-            UseText.transform.rotation = Quaternion.LookRotation(hit.point - Camera.position).normalized);
+            UseText.transform.rotation = Quaternion.LookRotation((hit.point - Camera.position).normalized);
         }
         else
         {
