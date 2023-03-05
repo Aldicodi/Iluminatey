@@ -34,23 +34,9 @@ public class PlayerActions : MonoBehaviour
 
     private void Update()
     {
-        if(Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers) && hit.collider.TryGetComponent<Door>(out Door door))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (door.IsOpen)
-            {
-                UseText.SetText("Clost \"E\"");
-            }
-            else
-            {
-                UseText.SetText("Open \"E\"");
-            }
-            UseText.gameObject.SetActive(true);
-            UseText.transform.position = hit.point - (hit.point - Camera.position).normalized * .01f;
-            UseText.transform.rotation = Quaternion.LookRotation((hit.point - Camera.position).normalized);
-        }
-        else
-        {
-            UseText.gameObject.SetActive(false);
+            OnUse();
         }
     }
 }

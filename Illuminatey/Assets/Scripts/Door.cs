@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     [SerializeField]
     private float RotationAmount = 90f;
     [SerializeField]
-    private float ForwardDirection = 0;
+    private float ForwardDirection = -0.5f;
 
     private Vector3 StartRotation;
     private Vector3 Forward;
@@ -24,22 +24,25 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         StartRotation = transform.rotation.eulerAngles;
-        Forward = transform.right;
+        Forward = transform.forward;
     }
 
     public void Open(Vector3 UserPosition)
     {
-        if(!IsOpen)
-        {
-            StopCoroutine(AnimationCoroutine);
-        }
+        
 
         if (IsRotatingDoor)
         {
+
             float dot = Vector3.Dot(Forward, (UserPosition - transform.position).normalized);
             Debug.Log($"Dot: {dot.ToString("N3")}");
             AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
+            if (!IsOpen)
+            {
+                StopCoroutine(AnimationCoroutine);
+            }
         }
+
     }
 
     private IEnumerator DoRotationOpen(float ForwardAmount)
