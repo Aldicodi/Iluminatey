@@ -7,7 +7,7 @@ public class EndScreen : MonoBehaviour
 {
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("House 4");
     }
     
     public void BackToMenu()

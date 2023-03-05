@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InfoScreen.unity
     guid: 057248ee135a145d391b3375b7e35b8c
+  - enabled: 1
+    path: Assets/Scenes/House 4.unity
+    guid: 9b7d8af7fee68554582f718b40107396
+  - enabled: 1
+    path: Assets/Scenes/EndMenu.unity
+    guid: f3d6bc5fafe448d42817ce7480b15fbe
   m_configObjects: {}
