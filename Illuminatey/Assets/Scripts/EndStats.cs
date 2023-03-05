@@ -10,4 +10,5 @@ public class EndStats : MonoBehaviour
     public static float bank = 150;
     public static int lightsOn = 8;
 
+
 }

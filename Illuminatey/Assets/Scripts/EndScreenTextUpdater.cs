@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextUpdater : MonoBehaviour
+public class EndScreenTextUpdater : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI CoinText;
-
+    private TextMeshProUGUI EndText;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +18,7 @@ public class TextUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ValueText.text = "Coins: %.2f" + (EndStats.bank).ToString();
-        CoinText.SetText("Coins: " + EndStats.bank.ToString("F2"));
-
+        EndText.SetText("Coins Spent: " + EndStats.moneySpent.ToString("F2") + "\n\nCoins Left: " + EndStats.bank.ToString("F2") + "\n\nTasks Completed: (Coming Soon)");
+        
     }
 }

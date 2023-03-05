@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameClock : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
 
     public static float gameTime = 60;
@@ -31,15 +31,12 @@ public class GameClock : MonoBehaviour
         else
         {
             ResetTimer();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             SceneManager.LoadScene("EndMenu");
         }
 
         if (EndStats.bank <= 0)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            EndStats.bank = 0;
             SceneManager.LoadScene("EndMenu");
         }
     }
